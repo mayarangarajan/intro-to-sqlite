@@ -17,3 +17,68 @@ You can ignore the middleware code -- at a very basic level, this code allows us
 The database `foo.db` contains one table named `user`.
 
 Use DB Browser to explore this database before you write any code!
+
+
+### test runs
+
+1. get all users: get localhost:4000/users
+
+[
+    {
+        "id": 1,
+        "name": "foo"
+    },
+    {
+        "id": 2,
+        "name": "bar"
+    },
+    {
+        "id": 3,
+        "name": "baz"
+    },
+    {
+        "id": 4,
+        "name": "wobble"
+    }
+]
+
+2. specific user test: get localhost:4000/user/2
+
+{
+    "id": 2,
+    "name": "bar"
+}
+
+
+3. create: post localhost:4000/user
+
+
+{
+  "name": "maya r",
+  "email": "maya.r@example.com"
+}
+
+
+{
+    "id": 5,
+    "name": "maya r"
+}
+
+
+
+4. update: put localhost:4000/user/1
+
+{
+  "name": "maya r",
+  "email": "maya.r@example.com"
+}
+
+{
+    "id": 1,
+    "name": "maya r"
+}
+
+5. delete: localhost:4000/user/1 i deleted 1 and 2 so they may not work but 3 and 4 probably do 
+
+User with ID 1 deleted
+
