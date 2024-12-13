@@ -1,13 +1,15 @@
 import sqlite3 from "sqlite3";
 import { Request, Response } from "express";
 
+
+//sqlite3
 const sqlite = sqlite3.verbose();
 const db = new sqlite.Database("./foo.db", (error) => {
   if (error) return console.error(error.message);
   console.log("Connected to SQLite database.");
 });
 
-// Get all users
+// get all users
 export const getAllUsers = (req: Request, res: Response) => {
   const query = `SELECT * FROM user`;
   db.all(query, [], (error, rows) => {
@@ -20,7 +22,7 @@ export const getAllUsers = (req: Request, res: Response) => {
   });
 };
 
-// Get user by ID
+// get user by ID
 export const getUserById = (req: Request, res: Response) => {
   const id = parseInt(req.params.id);
   const query = `SELECT * FROM user WHERE id = ?`;
@@ -38,7 +40,7 @@ export const getUserById = (req: Request, res: Response) => {
   });
 };
 
-// Create a new user
+// create a new user
 export const createUser = (req: Request, res: Response) => {
   const { name } = req.body;
   const query = `INSERT INTO user (name) VALUES (?)`;
@@ -52,7 +54,7 @@ export const createUser = (req: Request, res: Response) => {
   });
 };
 
-// Update a user's name by ID
+// update a user's name by ID
 export const updateUserById = (req: Request, res: Response) => {
   const id = parseInt(req.params.id);
   const { name } = req.body;
@@ -71,7 +73,7 @@ export const updateUserById = (req: Request, res: Response) => {
   });
 };
 
-// Delete a user by ID
+// delete a user by ID
 export const deleteUserById = (req: Request, res: Response) => {
   const id = parseInt(req.params.id);
   const query = `DELETE FROM user WHERE id = ?`;

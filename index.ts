@@ -4,10 +4,10 @@ import * as db from "./db";
 const app = express();
 const PORT = 4000;
 
-// Middleware for parsing JSON
+// middleware for parsing JSON
 app.use(express.json());
 
-// Handle CORS
+// CORS
 app.use((req, res, next) => {
   const allowedOrigins = ["http://localhost:8080"];
   const origin = req.headers.origin;
@@ -19,19 +19,19 @@ app.use((req, res, next) => {
   next();
 });
 
-// Routes
+// routes
 app.get("/", (req, res) => {
   res.json({ info: "Demo app for sqlite3" });
 });
 
 // CRUD routes
-app.get("/users", db.getAllUsers); // Get all users
-app.get("/user/:id", db.getUserById); // Get user by ID
-app.post("/user", db.createUser); // Create a new user
-app.put("/user/:id", db.updateUserById); // Update a user by ID
-app.delete("/user/:id", db.deleteUserById); // Delete a user by ID, I deleted 1 and 2 and they may not work but 3 and 4 probably do
+app.get("/users", db.getAllUsers); // get all users
+app.get("/user/:id", db.getUserById); // get user by ID
+app.post("/user", db.createUser); // create a new user
+app.put("/user/:id", db.updateUserById); // update a user by ID
+app.delete("/user/:id", db.deleteUserById); // delete a user by ID, I deleted 1 and 2 and they may not work but 3 and 4 probably do
 
-// Start the server
+// start the server
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
