@@ -9,7 +9,7 @@ app.use(express.json());
 
 // CORS
 app.use((req, res, next) => {
-  const allowedOrigins = ["http://localhost:8080"];
+  const allowedOrigins = ["http://localhost:5173"];
   const origin = req.headers.origin;
   if (origin && allowedOrigins.includes(origin)) {
     res.setHeader("Access-Control-Allow-Origin", origin);
